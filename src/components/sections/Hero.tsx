@@ -13,11 +13,19 @@ export default function Hero() {
   const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!titleRef.current || !subtitleRef.current || !ctaRef.current || !lineRef.current) {
+      return;
+    }
+
+    gsap.set([titleRef.current, subtitleRef.current, ctaRef.current], {
+      opacity: 1,
+      color: "#1A1A1A",
+    });
+
     const tl = gsap.timeline({ delay: 0.3 });
 
     tl.from(titleRef.current, {
       y: 80,
-      opacity: 0,
       duration: 1.2,
       ease: "power3.out",
     })
@@ -25,7 +33,6 @@ export default function Hero() {
         subtitleRef.current,
         {
           y: 40,
-          opacity: 0,
           duration: 0.8,
           ease: "power3.out",
         },
@@ -35,7 +42,6 @@ export default function Hero() {
         ctaRef.current,
         {
           y: 30,
-          opacity: 0,
           duration: 0.6,
           ease: "power3.out",
         },

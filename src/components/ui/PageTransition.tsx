@@ -17,6 +17,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
           duration: 0.6,
           ease: [0.16, 1, 0.3, 1],
         }}
+        style={{ color: "inherit" }}
       >
         {children}
       </motion.div>
